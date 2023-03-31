@@ -6,6 +6,7 @@ import jwt from "jsonwebtoken";
 import cors from "cors";
 
 import User from "./Model/User.js";
+import { employees, employeesList } from "./Controller/Employee.js";
 import { login, register } from "./Controller/User.js";
 
 // database connection
@@ -44,7 +45,8 @@ const isAuthenticated = async (req, res, next) => {
 app.post("/login", login);
 
 app.post("/register", register);
-
+app.post("/employee", employees);
+app.get("/employeeList", employeesList);
 app.listen(5000, () => {
   console.log("Server is working");
 });
